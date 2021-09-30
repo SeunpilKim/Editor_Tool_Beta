@@ -17,7 +17,9 @@ const bundleCode = async (rawCode: string) => {
             bundle: true,
             write: false,
             plugins: [unpkgPathPlugin(), fetchPlugin(rawCode)],
-            define: { 'process.env.NODE_ENV': '"production"', global: 'window' }
+            define: { 'process.env.NODE_ENV': '"production"', global: 'window' },
+            jsxFactory: '_React.createElement',
+            jsxFragment: '_React.Fragment'
         })
     
         return {
